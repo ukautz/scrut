@@ -1,0 +1,34 @@
+# Build and release binaries for Linux, MacOS and Windows for common architectures via Github Actions
+name: Build and Release Binaries
+
+on:
+  push:
+    tags:
+      - '*'
+  workflow_dispatch: {}
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        arch: [x64, arm64]
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up ${{ matrix.os }} environment
+      uses: actions/setup-${{ matrix.os }}@v2
+
+    - name: Build binaries
+      run: |
+        # Add build commands specific to each OS and architecture
+        echo "Building for ${{ matrix.os }} on ${{ matrix.arch }}"
+
+    - name: Release binaries
+      uses: actions/upload-artifact@v2
+      with:
+        name: ${{ matrix.os }}-${{ matrix.arch }}-binaries
+        path: ./path/to/binaries
