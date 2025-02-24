@@ -1,0 +1,28 @@
+{
+  "outputs": {
+    "hermes": {
+      "platforms": {
+        "macos-x86_64": {
+          "regex": "^scrut-.*-aarch64-apple-darwin",
+          "path": "macos-x86_64/scrut"
+        },
+        "macos-aarch64": {
+          "regex": "^scrut-.*-x86_64-apple-darwin",
+          "path": "macos-aarch64/scrut"
+        },
+        "linux-x86_64": {
+          "regex": "^scrut-.*-x86_64-.*-linux",
+          "path": "linux-x86_64/scrut"
+        },
+        "linux-aarch64": {
+          "regex": "^scrut-.*-aarch64-.*-linux",
+          "path": "linux-aarch64/scrut"
+        },
+        "windows-x86_64": {
+          "regex": "^scrut-.*-x86_64-.*-windows",
+          "path": "windows-x86_64/scrut.exe"
+        }
+      }
+    }
+  }
+}

@@ -63,7 +63,8 @@ jobs:
         run: |
           binary_name="scrut"
 
-          dirname="$binary_name-${{ env.VERSION }}-${{ matrix.target }}"
+          # dirname="$binary_name-${{ env.VERSION }}-${{ matrix.target }}"
+          dirname="$binary_name-${{ matrix.build }}"
           mkdir -p "$dirname"
           if [ "${{ matrix.os }}" = "windows-2022" ]; then
             mv "target/release/$binary_name.exe" "$dirname"
