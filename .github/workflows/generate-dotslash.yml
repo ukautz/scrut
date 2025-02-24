@@ -5,7 +5,7 @@ on:
   workflow_run:
     # These must match the names of the workflows that publish
     # artifacts to your GitHub release.
-    workflows: [release-binaries]
+    workflows: ["Build and Release Binaries"]
     types:
       - completed
   workflow_dispatch: {}
