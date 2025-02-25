@@ -1,6 +1,6 @@
 {
   "outputs": {
-      "scrut": {
+      "scrut.dotslash": {
           "platforms": {
               "macos-x86_64": {
                   "regex": "^scrut-.*-macos-x86_64",
