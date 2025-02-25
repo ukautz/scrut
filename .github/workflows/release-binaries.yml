@@ -78,8 +78,8 @@ jobs:
             7z a "$archivename.zip" "$dirname"
             echo "ASSET=$archivename.zip" >> $GITHUB_ENV
           else
-            tar --use-compress-program zstdmt -cf "$archivename.tar.zst" "$dirname"
-            echo "ASSET=$archivename.tar.zst" >> $GITHUB_ENV
+            tar -zcf "$archivename.tar.gz" "$dirname"
+            echo "ASSET=$archivename.tar.gz" >> $GITHUB_ENV
           fi
 
       - name: Release
