@@ -18,4 +18,4 @@ jobs:
             > scrut
           chmod +x scrut
       - name: Run Scrut Tests
-        run: RUST_LOG=info ./scrut test selftest/
+        run: RUST_LOG=info SCRUT_BIN="$(pwd)/scrut" ./scrut test selftest/
