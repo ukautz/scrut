@@ -1,0 +1,21 @@
+name: Scrut Tests
+on: [push, pull_request, workflow_dispatch]
+
+jobs:
+  scrut-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+      - name: Setup DotSlash
+        uses: facebook/install-dotslash@latest
+      - name: Download Scrut DotSlash
+        env:
+          SCRUT_VERSION: v0.3.0
+        run: |
+          curl --proto '=https' --tlsv1.2 -LsSf \
+            "https://github.com/facebookincubator/scrut/releases/download/$SCRUT_VERSION/scrut" \
+            > scrut
+          chmod +x scrut
+      - name: Run Scrut Tests
+        run: RUST_LOG=info ./scrut test selftests/
